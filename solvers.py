@@ -23,7 +23,10 @@ class EquationSolvers:
         it = 0
         while True:
             it += 1
-            x_next = x - f(x) * (x - x_prev) / (f(x) - f(x_prev))
+            denominator = f(x) - f(x_prev)
+            if abs(denominator) < 1e-15:
+                return x, it
+            x_next = x - f(x) * (x - x_prev) / denominator
             if abs(x_next - x) < eps:
                 return x_next, it
             x_prev, x = x, x_next
