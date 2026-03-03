@@ -43,7 +43,6 @@ class EquationSolvers:
         q = max(abs(1 + lmbd * d) for d in derivs)
         if q >= 1:
             return None, f"Не сходится (q={q:.2f})"
-
         x = (a + b) / 2
         it = 0
         while True:
