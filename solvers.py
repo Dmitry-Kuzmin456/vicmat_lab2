@@ -4,7 +4,6 @@ import numpy as np
 class EquationSolvers:
     @staticmethod
     def chord(f, ddf, a, b, eps):
-        # Выбор неподвижного конца x0: f(x0)*f''(x0) > 0
         x0 = a if f(a) * ddf(a) > 0 else b
         x = b if x0 == a else a
         it = 0
